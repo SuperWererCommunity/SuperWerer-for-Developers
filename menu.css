@@ -1,0 +1,24 @@
+.mainborder{
+
+	border: 5px solid black;
+
+}
+
+div {
+
+}
+
+.inappbutton {
+	background-color: Grey;
+    color: black;
+	padding: 25px;
+	text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 25px;
+	position: absolute;
+	width: 400px;
+
+
+
+}
