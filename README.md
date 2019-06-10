@@ -5,3 +5,4 @@ can view their number of views and generated revenue. Contributions are welcome!
 The SW for Devs current live version can be found here: https://superwerer.com/developers.php
 
 Login with your forum's account!
+Don't have one yet? Register here: https://superwerer.com/member.php?action=register
