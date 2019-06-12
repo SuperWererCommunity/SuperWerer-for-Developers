@@ -1,11 +1,180 @@
-.mainborder{
-
-	border: 5px solid black;
-
+/* Clear defaults */
+* {
+	margin: 0;
+	padding: 0;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+html {
+	height: 100%;
 }
 
-div {
+/* CSS Variables */
+:root {
+	--main-black: rgb(20, 20, 20);
+	--accent-black: rgb(40,40,40);
+	--main-green: rgb(49, 219, 100);
+	--darker-green: rgb(49, 173, 86);
+	--accent-green: rgb(195, 250, 193);
+	--main-white: rgb(245, 245, 245);
+	--accent-white: rgb(230, 230, 230);
+	--font-serif: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	--shadow: 0px 5px 5px rgba(20, 20, 20, 0.3);
+	
+}
 
+/* Custom tags */
+v-box, h-box {
+	display: flex;
+}
+
+v-box {
+	flex-direction: column;
+	align-items: center;
+}
+
+h-box {
+	flex-direction: row;
+}
+
+/* Head styles */
+h1 {
+	font-weight: lighter;
+	font-size: 2.2em;
+	padding: 0.6em;
+}
+a {
+	text-decoration: none;
+	color: var(--darker-green);
+}
+
+header {
+	box-sizing:border-box;
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+	padding: 0.5em 1em;
+	margin-bottom: 0.4em;
+	width: 100%;
+
+	font-family: var(--font-serif);
+	font-size: 1.5em;
+	color: var(--main-black);
+	background-color: var(--main-green);
+	box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.6);
+}
+img {
+	width:  4em;
+	height: 4em;
+	border-radius: 50%;
+	margin-top: 1em;
+}
+header h3 {
+	font-weight: normal;
+}
+header p {
+	font-weight: lighter;
+	margin-left: 0.3em;
+}
+
+body {
+	font-family: var(--font-serif);
+	color: var(--main-black);
+	background:   
+	linear-gradient(217deg, rgba(255,0,0,.5), rgba(255,0,0,0) 70.71%),
+	linear-gradient(127deg, rgba(0,255,0,.5), rgba(0,255,0,0) 70.71%),
+	linear-gradient(336deg, rgba(0,0,255,.5), rgba(0,0,255,0) 70.71%);
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+
+	padding: 0.5em;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+
+	font-size: 10pt;
+	color: var(--main-white);
+	background-color: var(--accent-black);
+}
+footer * {
+	margin: 0.3em;
+}
+footer a {
+	color: var(--main-green);
+}
+
+/* LOGIN STUFF */
+@keyframes fadein {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}
+.loginForm {
+	/* Fade-in animation */
+	animation: fadein 1s;
+	/* End fade-in */
+
+	padding: 1em;
+	margin: 1em;
+
+	border-radius: 5px;
+	background-color: var(--main-white);
+
+	box-shadow: var(--shadow);
+	width: 20em;
+}
+
+.loginForm p {
+	font-size: 10pt;
+}
+
+.inputs {
+	width: 50%;
+	margin-bottom: 2em;
+}
+.inputs h-box {
+	width: 100%;
+	padding-bottom: 1.5em;
+	justify-content: flex-end;
+	font-size: 10pt;
+}
+
+input, button {
+	width: 100%;
+	margin: 0.5em;
+	
+	border-style: none;
+	font-family: var(--font-serif);
+}
+
+input {
+	box-sizing: border-box;
+	color: var(--main-black);
+	background-color: transparent;
+	height: 3em;
+	padding: 0 0.5em;
+	
+	border-bottom: 1px solid var(--main-green);
+	transition: border-width 0.15s, background-color 0.3s;
+}
+input:hover {
+	background-color: var(--accent-white);
+}
+input:focus {
+	border-bottom-width: 4px;
+}
+
+button {
+	padding: 1em;
+	border-radius: 25px;
+	background-color: var(--main-green);
 }
 
 .inappbutton {
@@ -18,7 +187,5 @@ div {
     font-size: 25px;
 	position: absolute;
 	width: 400px;
-
-
-
 }
+
