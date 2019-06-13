@@ -41,7 +41,15 @@ h-box {
 	flex-direction: row;
 }
 
-/* Head styles */
+/* Primary element styles */
+body {
+	font-family: var(--font-serif);
+	color: var(--main-black);
+	background:   
+	linear-gradient(217deg, rgba(255,0,0,.5), rgba(255,0,0,0) 70.71%),
+	linear-gradient(127deg, rgba(0,255,0,.5), rgba(0,255,0,0) 70.71%),
+	linear-gradient(336deg, rgba(0,0,255,.5), rgba(0,0,255,0) 70.71%);
+}
 h1 {
 	font-weight: lighter;
 	font-size: 2.2em;
@@ -52,6 +60,7 @@ a {
 	color: var(--darker-green);
 }
 
+/* Semantic styles */
 header {
 	box-sizing:border-box;
 	display: flex;
@@ -81,13 +90,8 @@ header p {
 	margin-left: 0.3em;
 }
 
-body {
-	font-family: var(--font-serif);
-	color: var(--main-black);
-	background:   
-	linear-gradient(217deg, rgba(255,0,0,.5), rgba(255,0,0,0) 70.71%),
-	linear-gradient(127deg, rgba(0,255,0,.5), rgba(0,255,0,0) 70.71%),
-	linear-gradient(336deg, rgba(0,0,255,.5), rgba(0,0,255,0) 70.71%);
+main {
+	height: 100%;
 }
 
 footer {

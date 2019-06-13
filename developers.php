@@ -12,17 +12,16 @@ session_start();
 
 <title> SW for Developers v1.0 BETA </title>
 </head>
+<body oncontextmenu="return false;">
+
 
 <header>
-
   <h3>SuperWerer</h3><p>for Developers</p>
 </header>
+<main>
 
-
-<body oncontextmenu="return false;">
 <!-- Login form -->
-
-<form id="overlay" method="post">
+<form id="overlay" method="post" style="display:none;">
   <v-box>
   <v-box class="loginForm">
   <img src="./images/SW_logo_4.png"/>
@@ -50,6 +49,7 @@ session_start();
 
 
 
+</main>
 <footer>
   <p> Version 0.0.1 BETA </p>
   <div id="reportbug">
@@ -59,11 +59,8 @@ session_start();
 
 
 <!-- END HTML -->
-
-
-  <?php
-
-  echo "<script>
+<!-- JS -->
+  <script>
   var logininfo = document.getElementById('logininfo');
   logininfo.style.display='block';
 
@@ -72,11 +69,10 @@ session_start();
 
   var forgotpassword = document.getElementById('forgotpassword');
   forgotpassword.style.display='flex';
+  </script>
+<!-- END JS -->
 
-  </script>";
-
-
-
+<?php
 if (isset($_POST['login-submit'])) {
 require 'includes/dbh.inc.php';
 
