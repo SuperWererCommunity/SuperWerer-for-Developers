@@ -38,8 +38,8 @@ session_start();
       <button id="input3" type="submit" name="login-submit">Login</button>
     </v-box>
 
-    <div id="logininfo"> 
-      <p>Don't have a forums account yet? 
+    <div id="logininfo">
+      <p>Don't have a forums account yet?
         <a href="https://superwerer.com/member.php?action=register" target="_blank">Register here!</a>
       </p>
     </div>
@@ -59,8 +59,16 @@ session_start();
 
 
 <!-- END HTML -->
+<<<<<<< HEAD
 <!-- JS -->
   <script>
+=======
+
+
+  <?php
+ // Menu screen elements
+  echo "<script>
+>>>>>>> ee16ccac66dd3986d0706afdf4cfceca87339029
   var logininfo = document.getElementById('logininfo');
   logininfo.style.display='block';
 
@@ -138,6 +146,8 @@ require 'includes/dbh.inc.php';
           $devemail = $row[email];
           $totalviews = 0;
           $totalrevenue = 0;
+
+          // Give rank according to user's rank ID
           $rank = $row[usergroup];
           if($rank==22){
             $rank = "Administrator";
@@ -170,7 +180,7 @@ require 'includes/dbh.inc.php';
             $rank = "Other";
           }
 
-// Get Title
+// Get Games' Titles
 
           $query ="SELECT title FROM portal_games WHERE dev=?;";
 
@@ -211,7 +221,7 @@ resultBox.appendChild(p);
             }
           }
 
-        //Get Views
+        //Get Games' Views
 
         $query ="SELECT noviews FROM portal_games WHERE dev=?;";
 
@@ -248,7 +258,7 @@ var resultBox1 = document.getElementById('results1');
           }
         }
 
-        //Get revenue
+        //Get Games' Revenue
 
         $query ="SELECT revenue FROM portal_games WHERE dev=?;";
 
@@ -291,38 +301,47 @@ var resultBox1 = document.getElementById('results1');
 
 
 
-// User Data
+// User Data (Top left welcome message)
 
 echo "<div style='position: absolute;top:90px;left:30px;font-size: 35px;'>Welcome, </div>";
 echo "<div style='position: absolute;top:80px;left:200px;font-size: 25px;'>{$devusername}</div>";
 echo "<div style='position: absolute;top:110px;left:190px;width: 200px; height: 1px;border: 2px solid black;background-color:black;border-radius:5px;'></div>";
 echo "<div style='position: absolute;top:115px;left:200px;font-size: 20px;'>{$rank}</div>";
 echo "<div style='position: absolute;top:150px;left:10px;width: 800px; height: 1px;border: 2px solid black;background-color:black;'></div>";
+
+
+// Last updated message (Lower left message)
+
 echo "<div style='position: absolute;top:580px;left:20px;font-size: 20px;'>Last Updated: Saturday 8.June 14:00 GMT+2 </div>";
 
+// Game Information Categories (List Titles)
 echo "<div id='gametitle' style='position: absolute;top:250px;left:30px;font-size: 20px;'>Game Title </div>";
 echo "<div id='gameviews' style='position: absolute;top:250px;left:400px;font-size: 20px;'>Plays </div>";
 echo "<div id='gamerevenue' style='position: absolute;top:250px;left:500px;font-size: 20px;'>Revenue </div>";
 
+// Game Information Totals (Total number of views and revenue)
 echo "<div id='totals' style='position:absolute;top: 500px;left:30px;font-size:20px;'> Total </div>";
 echo "<div id='totalsviews' style='position: absolute;top:500px;left:400px;font-size: 20px;'>{$totalviews}</div>";
 echo "<div id='totalsrevenue' style='position: absolute;top:500px;left:500px;font-size: 20px;'>{$totalrevenue}$</div>";
 
+//Upload and Update games buttons
 echo "<div style='position:absolute;width:150px;top:80px;left:470px;border:2px solid black;background-color:orange;font-size:20px;padding:5px;'><a href='https://superwerer.com/form.php?formid=2' target='_blank' style='text-decoration:none; color: black;'><center>Upload new <br> Game </center> </a></div>";
 echo "<div style='position:absolute;width:150px;top:80px;left:640px;border:2px solid black;background-color:lightblue;font-size:20px;padding:5px;'><a href='https://superwerer.com/form.php?formid=4' target='_blank' style='text-decoration:none; color: black;'><center>Update <br> Game </center></a></div>";
 
 
+// Hide the login page information elements
 echo "<script>
 logininfo.style.display='none';
 forgotpassword.style.display='none';
 
 </script>";
-// Categories
 
+
+// Click-able categories
 echo "<button onClick='gamesOpen()' class='inappbutton' id='gameinfobutton' style='top:155px;left:12px;position:absolute;'> Game Stats</button>";
 echo "<button onClick='paymentOpen()' class='inappbutton' id='paymentinfobutton' style='top:155px;left:415px;position:absolute;'> Payment Settings</button>";
 
-// Game Stats
+// Make Game Information Visible
 echo "<script>
 var gametitle = document.getElementById('gametitle');
 gametitle.style.display='block';
@@ -342,7 +361,7 @@ totalsrevenue.style.display='block';
 </script>";
 
 
-
+// Make game information visible if the user clicks on the "Games" Button
 
 echo "<script>
 function gamesOpen(){
@@ -361,12 +380,12 @@ totalsrevenue.style.display='block';
 </script>";
 
 
-//Payment Settings
+//Payment Settings page elements
 
 echo "<div id='paymentmethod' style='position: absolute;top:300px;left:30px;font-size:25px;'>Payment Method: Paypal</div>";
 echo "<div id='paypalemail' style='position: absolute;top:350px;left:30px;font-size:25px;'>Paypal E-mail Address: {$devemail}</div>";
 
-
+//Make payment settings invisible
 echo "<script>
 var paymentmethod = document.getElementById('paymentmethod');
 paymentmethod.style.display='none';
@@ -375,6 +394,9 @@ var paypalemail = document.getElementById('paypalemail');
 paypalemail.style.display='none';
 </script>";
 
+
+
+// Make payment elements visible and hide game information if user clicks on "Payment Settings" button
 echo "<script>
 function paymentOpen(){
 paymentmethod.style.display='block';
@@ -393,7 +415,7 @@ totalsrevenue.style.display='none';
 </script>";
 
 
-//Remove form
+//Hide the login page input fields
 echo "<script>
 var usernamefield = document.getElementById('input1');
 usernamefield.style.display='none';
