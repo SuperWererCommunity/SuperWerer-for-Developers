@@ -2,6 +2,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 input:focus,
 select:focus,
@@ -9,7 +10,7 @@ textarea:focus,
 button:focus {
     outline: none;
 }
-html {
+html, body {
 	height: 100%;
 }
 
@@ -50,10 +51,15 @@ body {
 	linear-gradient(127deg, rgba(0,255,0,.5), rgba(0,255,0,0) 70.71%),
 	linear-gradient(336deg, rgba(0,0,255,.5), rgba(0,0,255,0) 70.71%);
 }
-h1 {
+h1, h2 {
 	font-weight: lighter;
+}
+h1 {
 	font-size: 2.2em;
 	padding: 0.6em;
+}
+h2 {
+	padding: 0.5em;
 }
 a {
 	text-decoration: none;
@@ -89,9 +95,8 @@ header p {
 	font-weight: lighter;
 	margin-left: 0.3em;
 }
-
 main {
-	height: 100%;
+	height: 80%;
 }
 
 footer {
@@ -99,10 +104,12 @@ footer {
 	justify-content: center;
 
 	padding: 0.5em;
+	width: 100%;
+
 	position: fixed;
 	left: 0;
 	bottom: 0;
-	width: 100%;
+	z-index: 1;
 
 	font-size: 10pt;
 	color: var(--main-white);
@@ -115,7 +122,11 @@ footer a {
 	color: var(--main-green);
 }
 
-/* LOGIN STUFF */
+/*
+` ---------------------------------------------------------
+` LOGIN/INPUT STUFF 
+` ---------------------------------------------------------
+`*/
 @keyframes fadein {
 	from { opacity: 0; }
 	to   { opacity: 1; }
@@ -150,9 +161,10 @@ footer a {
 	font-size: 10pt;
 }
 
-input, button {
+input, button, .button {
 	width: 100%;
 	margin: 0.5em;
+	color: var(--main-black);
 	
 	border-style: none;
 	font-family: var(--font-serif);
@@ -160,7 +172,7 @@ input, button {
 
 input {
 	box-sizing: border-box;
-	color: var(--main-black);
+	
 	background-color: transparent;
 	height: 3em;
 	padding: 0 0.5em;
@@ -175,21 +187,101 @@ input:focus {
 	border-bottom-width: 4px;
 }
 
-button {
+button, .button {
+	cursor: pointer;
+	display: flex;
 	padding: 1em;
 	border-radius: 25px;
 	background-color: var(--main-green);
+	justify-content: center;
+	align-items: center;
 }
 
-.inappbutton {
-	background-color: Grey;
-    color: black;
-	padding: 25px;
-	text-align: center;
-    text-decoration: none;
-    display: block;
-    font-size: 25px;
-	position: absolute;
-	width: 400px;
+/*
+` ---------------------------------------------------------
+` CONTENT STUFF
+` ---------------------------------------------------------
+*/
+#mainContent {
+	display: grid;
+	grid-template-columns: 15em 1fr;	
+	grid-template-rows: 100%;
+	height: 100%;
 }
 
+aside {
+	height: 100%;
+	flex-direction: column;
+	background-color: var(--main-white);
+	border-top-right-radius: 10px;
+	border-bottom-right-radius: 10px;
+	z-index: 1;
+
+	box-shadow: 0px 3px 5px rgba(20, 20, 20, 0.6);
+}
+aside h1 {
+	padding: 0.5em 0.5em 0 12pt;
+}
+aside h2 {
+	padding: 0 0.5em 0.5em 12pt;
+}
+aside button {
+	background-color: var(--accent-white);
+	margin: 0;
+	border-radius: 0;
+	width: 100%;
+	justify-content: left;
+}
+.activeTab {
+	background-color: var(--accent-green);
+}
+
+data-table {
+	display: flex;
+	flex-direction: column;
+	width: 98%;
+	margin: 1em auto;
+	border-radius: 10px;
+
+	background-color: var(--accent-green);
+	box-shadow: var(--shadow);
+}
+
+data-header, data-row {
+	display: flex;
+}
+data-header *, data-row * {
+	padding: 5pt;
+	margin: 5pt;
+	flex: 0 0 33%;
+	overflow-x: hidden;
+	text-overflow: ellipsis;
+}
+
+data-header {
+	background-color: var(--darker-green);
+	font-weight: bold;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+data-box data-row:nth-child(even) {
+	background-color: var(--main-green);
+}
+data-box data-row:last-child {
+	background-color: var(--darker-green);	
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	font-weight: lighter;
+}
+
+article {
+	overflow-y: scroll;
+	background-color: rgba(245, 245, 245, 0.7);
+	margin-left: 1em;
+	padding: 1em;
+
+	border-radius: 10px;
+}
+.hidden {
+	display: none;
+}
