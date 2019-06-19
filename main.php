@@ -1,3 +1,4 @@
+?>
 <section id="mainContent">
 
 <aside>
@@ -49,17 +50,13 @@
 //
 
 // Display each data
-?>
-<script>
-console.log("number of titles: " + <?=count($titles)?>);
-</script><?php
 for ($i = 0; $i < count($titles); ++$i) 
 {
   ?>
   <script>
     console.log("you've reached data display");
     console.log("count: " + <?=$i?>);
-    createDataRow(<?=$titles[$i]?>, <?=$plays[$i]?>, <?=$revenues[$i]?>);
+    createDataRow("<?=$titles[$i]?>", <?=$plays[$i]?>, <?=$revenues[$i]?>);
   </script>
   <?php
 }
