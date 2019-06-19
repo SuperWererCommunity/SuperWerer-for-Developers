@@ -149,7 +149,7 @@ if (isset($_POST['login-submit']))
           {
             while($gamerow = mysqli_fetch_assoc($queryresult)) 
             {
-              array_push($titles, $gamerow['noviews']);
+              array_push($plays, $gamerow['noviews']);
               $totalviews += $gamerow['noviews'];
             }
           }
@@ -170,7 +170,7 @@ if (isset($_POST['login-submit']))
           {
             while($gamerow = mysqli_fetch_assoc($queryresult)) 
             {
-              array_push($titles, $gamerow['revenue']);
+              array_push($revenues, $gamerow['revenue']);
               $totalrevenue += $gamerow['revenue'];
             }
           }
