@@ -1,4 +1,3 @@
-?>
 <section id="mainContent">
 
 <aside>
