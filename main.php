@@ -49,6 +49,10 @@
 //
 
 // Display each data
+?>
+<script>
+console.log("number of titles: " + <?=count($titles)?>);
+</script><?php
 for ($i = 0; $i < count($titles); ++$i) 
 {
   ?>
