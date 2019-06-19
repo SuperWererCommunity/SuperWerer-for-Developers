@@ -53,6 +53,8 @@ for ($i = 0; $i < count($titles); ++$i)
 {
   ?>
   <script>
+    console.log("you've reached data display");
+    console.log("count: " + <?=$i?>);
     createDataRow(<?=$titles[$i]?>, <?=$plays[$i]?>, <?=$revenues[$i]?>);
   </script>
   <?php
@@ -62,4 +64,3 @@ for ($i = 0; $i < count($titles); ++$i)
 <script>
   createTotalRow(<?=$totalviews?>, <?=$totalrevenue?>);
 </script>
-<?php
