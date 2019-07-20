@@ -5,6 +5,7 @@
   <h2><?=$rank?></h2>
   <button class="tablink"> Game Stats</button>
   <button class="tablink"> Payment Settings</button>
+  <button class="tablink"> Upload A Game </button>
 </aside>
 
 <article id="gameData">
@@ -27,7 +28,7 @@
   </data-table>
 
   <v-box>
-    <h6>Last Updated: Saturday 8.June 14:00 GMT+2</h6>
+    <h6>Last Updated: Monday 15.July 15:00 GMT+2</h6>
   </v-box>
 </article>
 
@@ -35,6 +36,43 @@
   <!-- Payment Settings page elements -->
   <div id='paymentmethod' >Payment Method: Paypal</div>
   <div id='paypalemail' >Paypal E-mail Address: <?=$devemail?></div>
+</article>
+
+
+<article id="uploadGame">
+
+  <h2> Upload A Game </h2>
+ <!--- Upload Game Form -->
+ <form id="uploadGameForm" enctype="multipart/form-data" method="post">
+   <v-box>
+
+    <input id="inputGameName" type="text" name="gameName" placeholder="Game Name" />
+    <input id="inputGameDescription" type="textarea" name="gameDescription" placeholder="Game Description" />
+    <input id="inputGameInstructions" type="textarea" name="gameInstructions" placeholder="Game Instructions" />
+    <select id="inputGameCategory" name="gameCategory">
+      <option value="action"> Action </option>
+      <option value="adventure"> Adventure </option>
+      <option value="defense"> Defense </option>
+      <option value="idle"> Idle </option>
+      <option value="multiplayer"> Multiplayer </option>
+      <option value="music"> Music </option>
+      <option value="platformer"> Platformer </option>
+      <option value="puzzle"> Puzzle </option>
+      <option value="shooter"> Shooter </option>
+      <option value="racing"> Racing </option>
+    </select>
+    <h3> Game File </h3>
+    <input id="inputGameFile" type="file" name="gameFile"/>
+    <h3> Game Image/Thumbnail </h3>
+    <input id="inputGameImageFile" type="file" name="gameImageFile"/>
+    <button id="inputGameUpload" type="submit" name="game-upload">Upload Game</button>
+
+   </v-box>
+
+
+
+ </form>
+
 </article>
 
 </section>
@@ -49,7 +87,7 @@
 //
 
 // Display each data
-for ($i = 0; $i < count($titles); ++$i) 
+for ($i = 0; $i < count($titles); ++$i)
 {
   ?>
   <script>
