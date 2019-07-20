@@ -7,7 +7,7 @@ if (isset($_POST['login-submit']))
   $usd = $_POST['usd'];
   $password = $_POST['pwd'];
 
-  if (empty($usd) || empty(password)) 
+  if (empty($usd) || empty(password))
   {
     header("Location: ../developers.php?error=emptyfields");
     exit();
@@ -16,7 +16,7 @@ if (isset($_POST['login-submit']))
   {
     $sql ="SELECT * FROM mybb_users WHERE username=? OR email=?;";
     $stmt = mysqli_stmt_init($conn);
-    if (!mysqli_stmt_prepare($stmt, $sql)) 
+    if (!mysqli_stmt_prepare($stmt, $sql))
     {
       header("Location: ../developers.php?error=sqlerror");
       exit();
@@ -31,7 +31,7 @@ if (isset($_POST['login-submit']))
       {
 
         //Md5 and salt user password
-        function salt_password($password, $salt) 
+        function salt_password($password, $salt)
         {
           return md5(md5($salt).$password);
         }
@@ -44,7 +44,7 @@ if (isset($_POST['login-submit']))
         {
           $pwdCheck = true;
         }
-        else 
+        else
         {
           $pwdCheck = false;
         }
@@ -71,7 +71,7 @@ if (isset($_POST['login-submit']))
           $titles = [];
           $plays = [];
           $revenues = [];
-          
+
 
           // Give rank according to user's rank ID
           $rank = $row[usergroup];
@@ -105,7 +105,7 @@ if (isset($_POST['login-submit']))
           else{
             $rank = "Other";
           }
-          
+
 
           /**
            * --------------------------------------------------------
@@ -127,9 +127,9 @@ if (isset($_POST['login-submit']))
 
           if ($queryresult)
           {
-            while($gamerow = mysqli_fetch_assoc($queryresult)) 
-            { 
-              array_push($titles, $gamerow['title']); 
+            while($gamerow = mysqli_fetch_assoc($queryresult))
+            {
+              array_push($titles, $gamerow['title']);
             }
           }
 
@@ -147,7 +147,7 @@ if (isset($_POST['login-submit']))
 
           if ($queryresult)
           {
-            while($gamerow = mysqli_fetch_assoc($queryresult)) 
+            while($gamerow = mysqli_fetch_assoc($queryresult))
             {
               array_push($plays, $gamerow['noviews']);
               $totalviews += $gamerow['noviews'];
@@ -168,7 +168,7 @@ if (isset($_POST['login-submit']))
 
           if ($queryresult)
           {
-            while($gamerow = mysqli_fetch_assoc($queryresult)) 
+            while($gamerow = mysqli_fetch_assoc($queryresult))
             {
               array_push($revenues, $gamerow['revenue']);
               $totalrevenue += $gamerow['revenue'];
@@ -180,13 +180,13 @@ if (isset($_POST['login-submit']))
           //
           include_once("main.php");
         }
-        else 
+        else
         {
           header("Location: developers.php?error=wrongpassword");
           exit();
         }
       }
-      else 
+      else
       {
         header("Location: developers.php?error=nouser");
         exit();
@@ -194,7 +194,7 @@ if (isset($_POST['login-submit']))
     }
   }
 }
-else 
+else
 {
 
   /*

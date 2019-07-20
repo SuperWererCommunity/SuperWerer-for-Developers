@@ -52,7 +52,7 @@ require_once("grabUserData.php");
 </main>
 
 <footer>
-  <p> Version 0.0.1 BETA </p>
+  <p> Version v1.0 </p>
   <div id="reportbug">
     <a href="https://superwerer.com/form.php?formid=6" target="_blank"> Report Bug </a>
   </div>

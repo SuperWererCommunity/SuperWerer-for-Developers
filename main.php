@@ -43,7 +43,7 @@
 
   <h2> Upload A Game (Under Development) </h2>
  <!--- Upload Game Form -->
- <form id="uploadGameForm" enctype="multipart/form-data" method="post">
+ <form id="upload" action="https://superwerer.com/developers.php" enctype="multipart/form-data" method="post">
    <v-box>
 
     <input id="inputGameName" type="text" name="gameName" placeholder="Game Name" required />
@@ -65,17 +65,25 @@
     <input id="inputGameFile" type="file" name="gameFile" required/>
     <h3> Game Image/Thumbnail </h3>
     <input id="inputGameImageFile" type="file" name="gameImageFile" required/>
-    <input id="inputGameTerms" type="checkbox" name="gameTerms" required> By submitting I also clearly state
+    <input id="inputGameTerms1" type="checkbox" name="gameTerms" required> By submitting I also clearly state
     that I own all the necessary rights to this work and it's my own original work. </input>
-    <input id="inputGameTerms" type="checkbox" name="gameTerms" required> By submitting this game I grant
+    <input id="inputGameTerms2" type="checkbox" name="gameTerms" required> By submitting this game I grant
     SuperWerer the right to publish this game on the SW games portal. </input>
-    <button id="inputGameUpload" type="submit" name="game-upload">Upload Game</button>
+
+    <button id="inputGameUpload" type="submit" name="upload-submit">Upload Game</button>
 
    </v-box>
 
 
 
  </form>
+
+
+
+ <!-- Game Upload Script -->
+ <?php
+ require("sendUserData.php");
+ ?>
 
 </article>
 
