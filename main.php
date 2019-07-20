@@ -41,13 +41,13 @@
 
 <article id="uploadGame">
 
-  <h2> Upload A Game </h2>
+  <h2> Upload A Game (Under Development) </h2>
  <!--- Upload Game Form -->
  <form id="uploadGameForm" enctype="multipart/form-data" method="post">
    <v-box>
 
-    <input id="inputGameName" type="text" name="gameName" placeholder="Game Name" />
-    <input id="inputGameDescription" type="textarea" name="gameDescription" placeholder="Game Description" />
+    <input id="inputGameName" type="text" name="gameName" placeholder="Game Name" required />
+    <input id="inputGameDescription" type="textarea" name="gameDescription" placeholder="Game Description"  />
     <input id="inputGameInstructions" type="textarea" name="gameInstructions" placeholder="Game Instructions" />
     <select id="inputGameCategory" name="gameCategory">
       <option value="action"> Action </option>
@@ -62,9 +62,13 @@
       <option value="racing"> Racing </option>
     </select>
     <h3> Game File </h3>
-    <input id="inputGameFile" type="file" name="gameFile"/>
+    <input id="inputGameFile" type="file" name="gameFile" required/>
     <h3> Game Image/Thumbnail </h3>
-    <input id="inputGameImageFile" type="file" name="gameImageFile"/>
+    <input id="inputGameImageFile" type="file" name="gameImageFile" required/>
+    <input id="inputGameTerms" type="checkbox" name="gameTerms" required> By submitting I also clearly state
+    that I own all the necessary rights to this work and it's my own original work. </input>
+    <input id="inputGameTerms" type="checkbox" name="gameTerms" required> By submitting this game I grant
+    SuperWerer the right to publish this game on the SW games portal. </input>
     <button id="inputGameUpload" type="submit" name="game-upload">Upload Game</button>
 
    </v-box>
